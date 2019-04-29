@@ -1,119 +1,129 @@
 body {
-    background-color: #202020;
     font-family: "Roboto", sans-serif;
-    text-align: center;
+    background-color: #e5e0e3;
 }
 
-.main__welcome-text {
+main {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+h2 {
+    font-size: 30px;
     margin-top: 50px;
-    font-weight: 100;
-    padding-bottom: 50px;
-    color: white;
+    font-weight: 300; 
+}
+
+.form-group {
+    position: relative;
+    padding-top: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+}
+
+label {
+    position: absolute;
+    top: 0;
+    font-size: var(--font-size-small);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.2s ease-out;
+}
+
+#input-summ {
+    width: 180px;
+    height: 40px;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+.checkbox {
+    width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#input {
-    display: flex;
-    font-size: 60px;
-    color: white;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-right: 8px;
-    background-color: #202020;
-    overflow: hidden;
-    word-break: break-all;
-}
-
-.main__conventor {
-    width: 308px;
-    height: 495px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    display: grid;
-    background-color: orange;
-    margin-bottom: 50px;
-    border: 1px solid black;
-    margin-left: auto;
-    margin-right: auto;
+.container {
+    display: inline-block;
+    position: relative;
+    padding: 30px 35px 30px 0;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 5px;
+    margin-top: 50px;
     text-align: center;
-    font-weight: 100;
-    grid-gap: 0;
-    box-shadow: 0 0 18px #111;
-}
-  
-.main__conventor__input {
-grid-area: 1 / 1 / 3 / span 6;
 }
 
-.main__conventor__ac {
-grid-area: 3 / 1 / 3 / span 3;
+  /* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}  
+  /* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
 }
 
-.main__conventor__c {
-    grid-area: 3 / 4 / 3 / span 3;
+  /* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
 }
 
-.main__conventor__one {
-    grid-area: 4 / 1 / 4 / span 2;
+  /* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
 }
 
-.main__conventor__two {
-    grid-area: 4 / 3 / 4 / span 2;
+  /* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
 }
 
-.main__conventor__three {
-    grid-area: 4 / 5 / 4 / span 2;
+  /* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
 }
 
-.main__conventor__four {
-    grid-area: 5 / 1 / 5 / span 2;
+  /* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
-.main__conventor__five {
-    grid-area: 5 / 3 / 5 / span 2;
+button {
+    background-color: #282827;
+    border: none;
+    color: white;
+    padding: 13px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 
-.main__conventor__six {
-    grid-area: 5 / 5 / 5 / span 2;
-}
-
-.main__conventor__seven {
-    grid-area: 6 / 1 / 6 / span 2;
-}
-
-.main__conventor__eight {
-    grid-area: 6 / 3 / 6 / span 2;
-}
-
-.main__conventor__nine {
-    grid-area: 6 / 5 / 6 / span 2;
-}
-
-.main__conventor__zero {
-    grid-area: 7 / 1 / 7 / span 2;
-}
-
-.main__conventor__dot {
-    grid-area: 7 / 3 / 7 / span 2;
-}
-
-.main__conventor__equally {
-    grid-area: 7 / 5 / 7 / span 2;
-}
-
-.main__conventor__uah {
-    grid-area: 8 / 1 / 8 / span 3;
-}
-
-.main__conventor__usd {
-    grid-area: 8 / 4 / 8 / span 3;
-}
-
-.main__conventor__rub {
-    grid-area: 9 / 1 / 9 / span 3;
-}
-
-.main__conventor__eur {
-    grid-area: 9 / 4 / 9 / span 3;
+#result {
+    width: 80%;
 }

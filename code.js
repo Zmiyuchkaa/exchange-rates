@@ -1,34 +1,53 @@
-let calcButtons = document.getElementsByName("button"); // переменная принимает список всех кнопок
-let calcInput = document.getElementById("input"); // переменная принимает всё, что попадет в инпут
-calcInput.innerText = "0"; // изначальное значение инпута - 0
+/* 
+Создать конвертер валют. Все находится в простой форме:
+Инпут
+Чекбокс с валютами, в которую конвертируем
+Кнопка "конвертировать"
+Валюта ввода пусть будет гривна. В чекбоксе будут остальные валюты (сделать штук 5).
+При нажатии на конвертировать, он конвертирует гривну в нужную валюту и отображает на странице.
+*/
 
-function eachButton(button) {
-    button.addEventListener("click", function() {
-        let buttonValue = button.innerText; // переменная хранит текст из кнопки
+let convertInput = document.getElementById("input-summ") // хранит введенное значение
+let convertCurrency = document.getElementsByTagName("label");
+let currency = {
+    usd: .27,
+    rub: 0.3,
+    eur: .3,
 
-        if(calcInput.innerText === "0") calcInput.innerText = ""; // стирает нолик когда начинаем вводить цифры
+}
+    
+// document.getElementsByName("check").forEach(function(item) {  //при выборе валюты выводит алерт
+//     item.addEventListener('click', function() {
+//         alert("Hello"); 
+//     })
+// })
 
-        switch (buttonValue) {
-            case "AC":
-                calcInput.innerText = "0";
-                break;
-            case "C":
-                calcInput.innerText = calcInput.innerText.substring(0, calcInput.innerText.length - 1);
-                if(calcInput.innerText === "") calcInput.innerText = "0";
-                break;
-            case "=":
-                let resValue = calcInput.innerText;
-                if (resValue.indexOf("UAH"))
-                calcInput.innerText = eval(resValue);
-                break;
-            case "UAH":
-                calcInput.innerText
+// document.getElementById("result").onclick = function() {
+//     alert("Hello")
+//     document.getElementsById("result__output").innerText = "Hello";
+//     return
+// }
 
-            default:
-            calcInput.innerText += buttonValue;
-        }
-    } 
-    )
+function moneyConverter(valNum) {
+    document.getElementsByName("check").forEach(function(item) {  //при выборе валюты выводит алерт
+        item.addEventListener('click', function() {
+            if (true && item.id === "USD") {
+                document.getElementById("outputrub").innerHTML = valNum * 0.27 + " USD"
+            }
+            else if (true && item.id === "EUR") {
+                document.getElementById("outputrub").innerHTML = valNum * 0.3 + " EUR"
+            }
+            else if (true && item.id === "RUB") {
+                document.getElementById("outputrub").innerHTML = valNum * 30 + " RUB"
+            }
+            else if (true && item.id === "AUD") {
+                document.getElementById("outputrub").innerHTML = valNum * 0.18 + " AUD"
+            }
+            else if (true && item.id === "NPR") {
+                document.getElementById("outputrub").innerHTML = valNum * 24 + " NPR"
+            } 
+        })
+    })
+    
 }
 
-calcButtons.forEach(eachButton);
